@@ -2,6 +2,12 @@
 import sys
 import os
 
+"""
+calc private key from seed phrase for eth / bnb
+
+Usage: {sys.argv[0]} seed_phrase
+
+"""
 seedphrase_module = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'seedphrase')
 
 sys.path.append(seedphrase_module)
