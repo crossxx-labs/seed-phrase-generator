@@ -79,6 +79,9 @@ def mnemonic_to_private_key(mnemonic, str_derivation_path, passphrase=""):
         private_key, chain_code = derive_bip32childkey(private_key, chain_code, i)
     return private_key
 
+def mnemonic_to_private_key_hex(mnemonic):
+    return mnemonic_to_private_key(mnemonic,
+            str_derivation_path=f'{ETH_DERIVATION_PATH}/0').hex()
 
 def mnemonic_to_address(mnemonic):
     

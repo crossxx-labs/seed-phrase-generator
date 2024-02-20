@@ -1,0 +1,5 @@
+
+
+
+# transfer via several middle addresses, adfile is the middle file containing multi addresses
+python btc2.transfer.eth.loop.py  "$source"  "$dest" $adfile 0.003
