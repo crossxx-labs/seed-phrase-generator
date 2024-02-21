@@ -71,11 +71,11 @@ if __name__ == "__main__":
         print(f"{idx} source, dest, amount: \n{src}\n {dest}\n {transfer_amount}\n {loss}")
         retry = 0
         max_retry = 3
-        sleep_seconds = 10
+        sleep_seconds = 15
         while retry < max_retry:
             try:
                 transfer(src, dest, transfer_amount, sleep_seconds)
-                format.print_success(f"transfer success with {retry} try")
+                format.print_success(f"transfer success with {retry} retry")
                 break
             except Exception as e:
                 format.print_error(f"get exception: {e}")

@@ -18,8 +18,8 @@ def run(exe_path, params):
 def aes_decode(encrypted_str):
     exe = os.environ.get('CRYPTO_EXE_PATH')
     aes_key = os.environ.get('aeskey')
-    if not exe:
-        raise Exception("CRYPTO_EXE_PATH not found")
+    if not exe or not aes_key:
+        raise Exception("CRYPTO_EXE_PATH or aes_key not found")
     code, stdout, stderr = run(exe, ["--dec", "--source",
                     f"{encrypted_str}", "--key", f"{aes_key}"])
     if code == 0:
