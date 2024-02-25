@@ -52,14 +52,14 @@ if __name__ == "__main__":
     dest_address = sys.argv[2]
     amount = float(sys.argv[4])
     start_index = 0
-    print(len(sys.argv))
+    # print(len(sys.argv))
     if (len(sys.argv)) >= 6:
         start_index = int(sys.argv[5])
         print(f"start index from {start_index}")
     source_middle_dest_seeds_or_addresses = [sys.argv[1]] + get_middle_seeds(middle_seeds_file) + [dest_address]
     # source_addrs = mnemonic_to_address(source_seed)
-    print(source_middle_dest_seeds_or_addresses)
-    print(len(source_middle_dest_seeds_or_addresses))
+    # print(source_middle_dest_seeds_or_addresses)
+    # print(len(source_middle_dest_seeds_or_addresses))
     idx = start_index
     transfer_amount = amount
     while idx < len(source_middle_dest_seeds_or_addresses) -1:
@@ -68,14 +68,15 @@ if __name__ == "__main__":
         dest = source_middle_dest_seeds_or_addresses[idx + 1]
         loss = loss_per_trans + random_loss()
         transfer_amount -= loss
-        print(f"{idx} source, dest, amount: \n{src}\n {dest}\n {transfer_amount}\n {loss}")
+        # print(f"{idx} source, dest, amount: \n{src}\n {dest}\n {transfer_amount}\n {loss}")
+        print(f"processing index {idx}")
         retry = 0
         max_retry = 3
         sleep_seconds = 15
         while retry < max_retry:
             try:
                 transfer(src, dest, transfer_amount, sleep_seconds)
-                format.print_success(f"transfer success with {retry} retry")
+                format.print_success(f"index {idx} transfer success with {retry} retry")
                 break
             except Exception as e:
                 format.print_error(f"get exception: {e}")

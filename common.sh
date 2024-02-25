@@ -2,5 +2,6 @@
 
 
 # transfer via several middle addresses, adfile is the middle file containing multi addresses
+echo  "$source"  "$dest" $adfile
 python btc2.transfer.eth.loop.py  "$source"  "$dest" $adfile 0.0025
 python btc2.transfer.eth.loop.py  "$source"  "$dest" $adfile 0.0025 2
